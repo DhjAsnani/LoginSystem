@@ -5,35 +5,53 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="LOGIN"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:textSize="25dp"
-        android:textStyle="bold|italic"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="REGISTER"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:textSize="25dp"
+        android:textStyle="bold|italic"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Username"
-        android:id="@+id/user_name"
+        android:text="Name"
+        android:id="@+id/reg_name"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edit_name"
-        android:layout_margin="20dp"/>
+        android:id="@+id/edit_reg_name"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Username"
+        android:id="@+id/reg_user_name"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_reg_user_name"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Password"
-        android:id="@+id/user_pass"
+        android:id="@+id/reg_user_pass"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"/>
 
@@ -41,29 +59,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:id="@+id/edit_pass"/>
+        android:id="@+id/edit_reg_pass"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:id="@+id/login_button"
-        android:layout_gravity="center_horizontal"
-        android:onClick="loginuser"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="or"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Register"
-        android:id="@+id/reg_button"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center_horizontal"
-        android:onClick="gotoReg"/>
+        android:id="@+id/register_button"
+        android:layout_gravity="center_horizontal" />
+
 
 
 </LinearLayout>
