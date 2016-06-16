@@ -35,7 +35,7 @@ public class BackgroudTask extends AsyncTask<String,Void,String> {
     protected String doInBackground(String... params) {
 
         //reg_url for register
-        String reg_url = "http://127.0.0.7:8080/Learn/webapp/register.php";
+        String reg_url = "http://192.168.43.116:8080/Learn/webapp/register.php";
         String login_url = "http://127.0.0.7:8080/Learn/webapp/login.php";
 
         String method = params[0];
@@ -55,8 +55,8 @@ public class BackgroudTask extends AsyncTask<String,Void,String> {
                 OutputStream OS = httpURLConnection.getOutputStream();
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(OS,"UTF-8"));
                 //encode data before send it
-                String data = URLEncoder.encode("user","UTF-8") + " = " + URLEncoder.encode(name,"UTF-8")+"&"+URLEncoder.encode("user_name","UTF-8")+" = "+URLEncoder.encode(username,"UTF-8")+
-                        "&"+URLEncoder.encode("user_pass","UTF-8")+" = "+URLEncoder.encode(userpas,"UTF-8");
+                String data = URLEncoder.encode("user","UTF-8") + "=" + URLEncoder.encode(name,"UTF-8")+"&"+URLEncoder.encode("user_name","UTF-8")+"="+URLEncoder.encode(username,"UTF-8")+
+                        "&"+URLEncoder.encode("user_pass","UTF-8")+"="+URLEncoder.encode(userpas,"UTF-8");
                 //write data to buffer necessary
                 bufferedWriter.write(data);
                 bufferedWriter.flush();
