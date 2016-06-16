@@ -29,6 +29,8 @@ public class Register_Activity extends Activity {
             String method = "register";
             BackgroudTask backgroudTask = new BackgroudTask(this);
             backgroudTask.execute(method,name,user_name,user_pass);
+            finish();
+            //now add interner permissions
         }
 
 }

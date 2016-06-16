@@ -2,9 +2,11 @@ package com.example.gohan.loginsystem;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
@@ -17,7 +19,8 @@ import javax.net.ssl.HttpsURLConnection;
 /**
  * Created by Freeware Sys on 17-Jun-16.
  */
-public class BackgroudTask extends AsyncTask<String,Void,Void> {
+// 3rd one is result and result in string so..
+public class BackgroudTask extends AsyncTask<String,Void,String> {
     Context ctx;
     BackgroudTask(Context ctx)
     {
@@ -29,7 +32,7 @@ public class BackgroudTask extends AsyncTask<String,Void,Void> {
     }
 
     @Override
-    protected Void doInBackground(String... params) {
+    protected String doInBackground(String... params) {
 
         //reg_url for register
         String reg_url = "http://127.0.0.7:8080/Learn/webapp/register.php";
@@ -60,6 +63,11 @@ public class BackgroudTask extends AsyncTask<String,Void,Void> {
                 bufferedWriter.close();
                 OS.close();
                 // Now create inputstream to get response from the server
+                // still no response required to work on
+
+                InputStream IS = httpURLConnection.getInputStream();
+                IS.close();
+                return "Registration Success.....";
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -75,7 +83,7 @@ public class BackgroudTask extends AsyncTask<String,Void,Void> {
     }
 
     @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
+    protected void onPostExecute(String result) {
+        Toast.makeText(ctx,result,Toast.LENGTH_SHORT).show();
     }
 }
