@@ -1,5 +1,6 @@
 package com.example.gohan.loginsystem;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
@@ -23,6 +24,8 @@ import javax.net.ssl.HttpsURLConnection;
  */
 // 3rd one is result and result in string so..
 public class BackgroudTask extends AsyncTask<String,Void,String> {
+    //alert for showing successful login
+    AlertDialog alertDialog;
     Context ctx;
     BackgroudTask(Context ctx)
     {
@@ -30,7 +33,10 @@ public class BackgroudTask extends AsyncTask<String,Void,String> {
     }
     @Override
     protected void onPreExecute() {
-        super.onPreExecute();
+
+        alertDialog = new AlertDialog.Builder(ctx).create();
+            alertDialog.setTitle("Login Information...");
+
     }
 
     @Override
@@ -127,7 +133,8 @@ public class BackgroudTask extends AsyncTask<String,Void,String> {
             Toast.makeText(ctx, result, Toast.LENGTH_SHORT).show();
         }
         else {
-            
+            alertDialog.setMessage(result);
+            alertDialog.show();
         }
     }
 }
