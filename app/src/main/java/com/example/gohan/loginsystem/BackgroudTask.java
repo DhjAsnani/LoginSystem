@@ -36,7 +36,7 @@ public class BackgroudTask extends AsyncTask<String,Void,String> {
 
         //reg_url for register
         String reg_url = "http://192.168.26.3:8080/Learn/webapp/register.php";
-        String login_url = "http://127.0.0.7:8080/Learn/webapp/login.php";
+        String login_url = "http://192.168.26.3:8080/Learn/webapp/login.php";
 
         String method = params[0];
         //if reg then perform register
@@ -68,6 +68,31 @@ public class BackgroudTask extends AsyncTask<String,Void,String> {
                 InputStream IS = httpURLConnection.getInputStream();
                 IS.close();
                 return "Registration Success.....";
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else if (method.equals("login"))
+        {
+            String login_name = params[1];
+            String login_pass = params[2];
+            try {
+                URL url = new URL(login_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream,"UTF-8"));
+                String data = URLEncoder.encode("login_name","UTF-8")+"="+URLEncoder.encode(login_name,"UTF-8")+"&"+URLEncoder.encode("login_pass","UTF-8")+"="+URLEncoder.encode(login_pass,"UTF-8");
+                bufferedWriter.write(data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+
+                //getting response from the server
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {

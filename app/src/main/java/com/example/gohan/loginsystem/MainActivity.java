@@ -31,5 +31,8 @@ public class MainActivity extends AppCompatActivity {
     {
         login_name = ET_NAME.getText().toString();
         login_pass = ET_PASS.getText().toString();
+        String method = "login";
+        BackgroudTask backgroudTask = new BackgroudTask(this);
+        backgroudTask.execute(method,login_name,login_pass);
     }
 }
