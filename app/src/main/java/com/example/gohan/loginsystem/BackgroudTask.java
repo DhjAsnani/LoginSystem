@@ -35,7 +35,7 @@ public class BackgroudTask extends AsyncTask<String,Void,String> {
     protected String doInBackground(String... params) {
 
         //reg_url for register
-        String reg_url = "http://192.168.43.116:8080/Learn/webapp/register.php";
+        String reg_url = "http://192.168.26.3:8080/Learn/webapp/register.php";
         String login_url = "http://127.0.0.7:8080/Learn/webapp/login.php";
 
         String method = params[0];
