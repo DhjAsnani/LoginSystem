@@ -4,9 +4,11 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
@@ -93,6 +95,18 @@ public class BackgroudTask extends AsyncTask<String,Void,String> {
                 outputStream.close();
 
                 //getting response from the server
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
+                String response ="";
+                String line="";
+                while ((line=bufferedReader.readLine())!=null)
+                {
+                    response+=line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return response;
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -109,6 +123,11 @@ public class BackgroudTask extends AsyncTask<String,Void,String> {
 
     @Override
     protected void onPostExecute(String result) {
-        Toast.makeText(ctx,result,Toast.LENGTH_SHORT).show();
+        if (result.equals("Registration Success.....")) {
+            Toast.makeText(ctx, result, Toast.LENGTH_SHORT).show();
+        }
+        else {
+            
+        }
     }
 }
