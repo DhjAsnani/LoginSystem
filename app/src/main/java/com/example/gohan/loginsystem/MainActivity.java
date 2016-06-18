@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         ET_NAME= (EditText) findViewById(R.id.edit_name);
         ET_PASS = (EditText)findViewById(R.id.edit_pass);
 
+
     }
     public void gotoReg(View view)
     {

@@ -35,7 +35,7 @@ public class BackgroudTask extends AsyncTask<String,Void,String> {
     protected void onPreExecute() {
 
         alertDialog = new AlertDialog.Builder(ctx).create();
-            alertDialog.setTitle("Login Information...");
+        alertDialog.setTitle("Login Information...");
 
     }
 
